@@ -1,0 +1,50 @@
+import javax.swing.*;
+import java.awt.*;// import org.junit.jupiter.api.Test;
+
+public class Main extends JFrame {
+  public Main() {
+    setTitle("Open challenge9");
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setSize(300,500);
+    setVisible(true);
+
+    Container c = getContentPane();
+    c.setLayout(new BorderLayout());
+    c.add(new NorthPanel(),BorderLayout.NORTH);
+    c.add(new CenterPanel(),BorderLayout.CENTER);
+  
+  }
+  public static void main(String[] args) {
+    new Main();
+  }
+
+}
+
+  class NorthPanel extends JPanel{
+  public NorthPanel(){
+    setBackground(Color.orange);
+    
+    add(new JButton("Open"));
+    add(new JButton("Read"));
+    add(new JButton("Close"));
+    
+  }
+}
+
+  class CenterPanel extends JPanel{
+    public CenterPanel(){
+      this.setLayout(null);
+      String text[] = {"Hello","Java","Love"};
+      int x,y;
+      JLabel label;
+      for(int i=0; i<3; i++){
+        x = (int)(Math.random()*250);
+        y = (int)(Math.random()*250);
+
+        label = new JLabel(text[i]);
+        label.setLocation(x,y);
+        label.setSize(50,10);
+        this.add(label);
+      }
+    }
+  }
